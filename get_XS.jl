@@ -1,7 +1,7 @@
 
 using DelimitedFiles
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\Materials.jl")
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\read_ace.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Materials.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\read_ace.jl")
 
 
 # Set up grid index mapping

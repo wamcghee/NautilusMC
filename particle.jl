@@ -1,5 +1,5 @@
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\Materials.jl")
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\get_XS.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Materials.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\get_XS.jl")
 
 
 mutable struct Particle

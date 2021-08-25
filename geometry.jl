@@ -1,19 +1,32 @@
 
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\Materials.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Materials.jl")
+
+mutable struct Trans
+    type::String
+    params::Vector{Float64}
+end
+
 
 mutable struct Surface
     type::String
     bounds_func::Function
     inside_func::Function
     dist_to_edge_func::Function
+    transformations::Vector{Trans}
 end
 
 
-struct Cell
-    universe::Any
+mutable struct Cell
     surfs_within::Vector{Surface}
     surfs_outside::Vector{Surface}
     fill::Any
+    transformations::Vector{Trans}
+end
+
+
+mutable struct Universe
+    cells::Vector{Cell}
+    transformations::Vector{Trans}
 end
 
 
@@ -22,6 +35,7 @@ function inside_surf(
     x::Vector{Float64})
     return surface.inside_func(x)
 end
+
 
 function dist_to_surf(
     surface::Surface,
@@ -45,7 +59,7 @@ function inf()
             return Inf
     end
 
-    return Surface("infinite", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("infinite", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -68,7 +82,7 @@ function px(X::Float64)
         end
     end
 
-    return Surface("plane", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("plane", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -91,7 +105,7 @@ function py(Y::Float64)
         end
     end
 
-    return Surface("plane", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("plane", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -114,7 +128,7 @@ function pz(Z::Float64)
         end
     end
 
-    return Surface("plane", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("plane", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -141,7 +155,7 @@ function planeEQ(A::Float64, B::Float64, C::Float64, D::Float64)
         end
     end
 
-    return Surface("plane", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("plane", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -178,7 +192,7 @@ function planePts(x1::Vector{Float64}, x2::Vector{Float64}, x3::Vector{Float64})
         end
     end
 
-    return Surface("plane", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("plane", bounds_func, inside_func, dist_to_edge_func, [])
 
 end
 
@@ -208,6 +222,6 @@ function box(x1::Vector{Float64}, x2::Vector{Float64})
         return minimum(distances)
     end
 
-    return Surface("box", bounds_func, inside_func, dist_to_edge_func)
+    return Surface("box", bounds_func, inside_func, dist_to_edge_func, [])
 
 end

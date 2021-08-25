@@ -1,6 +1,6 @@
 
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\Materials.jl")
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\geometry.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Materials.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\geometry.jl")
 
 water = define_Material(
         density = 1.0,
@@ -18,6 +18,8 @@ s1 = box([-1.0, -1.0, -1.0], [1.0, 1.0, 1.0])
 s2 = box([-2.0, -2.0, -2.0], [2.0, 2.0, 2.0])
 s3 = box([-3.0, -3.0, -3.0], [3.0, 3.0, 3.0])
 
-C1 = Cell(0, [s1], [], water)
-C2 = Cell(0, [s2], [s1], B4C)
-outside = Cell(0, [], [s2], nothing)
+C1 = Cell([s1], [], water, [])
+C2 = Cell([s2], [s1], B4C, [])
+outside = Cell([], [s2], nothing, [])
+
+Root = Universe([C1, C2, outside], [])

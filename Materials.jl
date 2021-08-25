@@ -1,10 +1,10 @@
 using DelimitedFiles
 
 # Unspecified scientific constancs
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\constants.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\constants.jl")
 
 # Table of masses of nuclides
-masses = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\masses.txt")
+masses = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\masses.txt")
 atomic_weight = Dict()
 for i = 1:size(masses)[1]
     atomic_weight[convert(Int64, masses[i, 1])] = masses[i, 2]
@@ -12,10 +12,10 @@ end
 masses = 0
 
 # Table of natural abundances of nuclides
-abundances = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\abundances.txt")
+abundances = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\abundances.txt")
 
 # Table of atomic numbers and symbols
-symbols = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\atomic_symbols.txt")
+symbols = readdlm("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\atomic_symbols.txt")
 
 
 function to_ZA(nuclide_str::String)
