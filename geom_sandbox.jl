@@ -1,6 +1,9 @@
 
 include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Materials.jl")
-include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\geometry.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Geometry.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Geometry_surface_bounds.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Geometry_surface_inside.jl")
+include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\NautilusMC\\NautilusMC\\Geometry_surface_distance.jl")
 
 water = define_Material(
         density = 1.0,
@@ -14,9 +17,9 @@ B4C = define_Material(
         atomic_fracs = [4.0, 1.0],
         color = [100, 0, 100])
 
-s1 = box([-1.0, -1.0, -1.0], [1.0, 1.0, 1.0])
-s2 = box([-2.0, -2.0, -2.0], [2.0, 2.0, 2.0])
-s3 = box([-3.0, -3.0, -3.0], [3.0, 3.0, 3.0])
+s1 = Surface("box", [-1.0, 1.0, -1.0, 1.0, -1.0, 1.0], [])
+s2 = Surface("box", [-2.0, 2.0, -2.0, 2.0, -2.0, 2.0], [])
+s3 = Surface("box", [-3.0, 3.0, -3.0, 3.0, -3.0, 3.0], [])
 
 C1 = Cell([s1], [], water, [])
 C2 = Cell([s2], [s1], B4C, [])
