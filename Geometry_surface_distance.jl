@@ -2,7 +2,7 @@ include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\N
 
 function surface_distance(surf::Surface, x, y, z, u, v, w)
 
-    x, y, z, u, v, w = trans_backwards(surf.transformations, x, y, z, u, v, w)
+    #x, y, z, u, v, w = trans_backwards(surf.transformations, x, y, z, u, v, w)
 
     if surf.type == "inf"
         return Inf

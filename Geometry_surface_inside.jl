@@ -2,7 +2,7 @@ include("C:\\Users\\warner\\Desktop\\My Stuff\\Personal Learning\\Monte Carlo\\N
 
 function surface_inside(surf::Surface, x, y, z)
 
-    x, y, z = trans_backwards(surf.transformations, x, y, z)
+    #x, y, z = trans_backwards(surf.transformations, x, y, z)
 
     if surf.type == "inf"
         return true
